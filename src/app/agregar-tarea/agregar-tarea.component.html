@@ -1,7 +1,9 @@
-<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-  <label>
-    Name:
-    <input type="text" formControlName="name">
-  </label>
-  <button type="submit">Submit</button>
-</form>
+<ion-item>
+  <ion-label>Title</ion-label>
+  <ion-input [(ngModel)]="title" placeholder="Enter title"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Date</ion-label>
+  <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="date"></ion-datetime>
+</ion-item>
+<ion-button (click)="addTarea()">Add Tarea</ion-button>

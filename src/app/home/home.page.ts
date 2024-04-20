@@ -1,5 +1,8 @@
 import { compileNgModule } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { tarea } from 'src/tarea.model';
+import { AgregarTareaComponent } from '../agregar-tarea/agregar-tarea.component';
+import { TareasComponent } from '../tareas/tareas.component';
 
 @Component({
   selector: 'app-home',
@@ -17,39 +20,9 @@ export class HomePage {
     console.log("AppComponent: OnChanges");
   }
 
-  ngOnInit() {
-    console.log("AppComponent: OnInit");
-  }
+  tareas: tarea[] = [];
 
-  ngDoCheck() {
-    console.log("AppComponent: DoCheck");
+  onTareaAdded(tarea: tarea) {
+    this.tareas.push(tarea);
   }
-
-  ngAfterContentInit() {
-    console.log("AppComponent: AfterContentInit");
-  }
-
-  ngAfterContentChecked() {
-    console.log("AppComponent: AfterContentChecked");
-  }
-
-  ngAfterViewInit() {
-    console.log("AppComponent: AfterViewInit");
-  }
-
-  ngAfterViewChecked() {
-    console.log("AppComponent: AfterViewChecked");
-  }
-
-  ngOnDestroy() {
-    console.log("AppComponent: OnDestroy");
-  }
-  title: string = 'Mi nueva pagina';
-
-  hazmeClic(): void{
-    alert("Hiciste clic!");
-  }
-
-  imgUrl: string = 'https://external-preview.redd.it/dorohedoro-sequel-anime-announced-v0-s3Li1y5z3X_pKf-XjsM83NGTlMSzU5cl9xC6nODiTdc.jpg?width=640&crop=smart&auto=webp&s=c629f94249595f6c3fd7735a5b0cd06cafb672b9'
-  
 }

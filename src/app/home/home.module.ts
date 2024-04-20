@@ -10,7 +10,6 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     IonicModule,
     HomePageRoutingModule,
     ReactiveFormsModule
+    
     
     
     ],

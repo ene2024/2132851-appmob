@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { tarea } from 'src/tarea.model';
 
 @Component({
   selector: 'app-tareas',
@@ -8,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class TareasComponent  implements OnInit {
 
   constructor() { }
-
+  
   ngOnInit() {}
+  @Input() tareas: tarea[] = [];
 
+  onTareaAdded(tareaData: { title: string, date: Date }) {
+    const newTarea = new tarea(tareaData.title, tareaData.date);
+    this.tareas.push(newTarea);
+  }
 }

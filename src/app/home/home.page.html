@@ -8,8 +8,8 @@
 
 <ion-content [fullscreen]="true">
 
-  
-  <app-tareas></app-tareas>
+  <app-agregar-tarea (tareaAdded)="onTareaAdded($event)"></app-agregar-tarea>
+  <app-tareas [tareas]="tareas"></app-tareas>
  
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button color="secondary" routerLink="AgregarTareaComponent">
