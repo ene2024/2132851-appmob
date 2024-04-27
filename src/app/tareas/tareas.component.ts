@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { tarea } from 'src/tarea.model';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { Tarea } from 'src/models/tarea';
+import { AgregarTareaComponent } from '../agregar-tarea/agregar-tarea.component';
+import { AgregaTareasService } from '../agrega-tareas.service';
 
 @Component({
   selector: 'app-tareas',
@@ -7,14 +10,31 @@ import { tarea } from 'src/tarea.model';
   styleUrls: ['./tareas.component.scss'],
 })
 export class TareasComponent  implements OnInit {
+  message="";
 
-  constructor() { }
-  
+  constructor(private modalCtrl: ModalController, private tareaserv: AgregaTareasService) { }
+
   ngOnInit() {}
-  @Input() tareas: tarea[] = [];
 
-  onTareaAdded(tareaData: { title: string, date: Date }) {
-    const newTarea = new tarea(tareaData.title, tareaData.date);
-    this.tareas.push(newTarea);
+  tareaNueva: Tarea = {
+    titulo: '',
+    fechaMes: '',
+    fechaAnio: 2024,
+    descripcion: ''
+  } 
+
+  tareas: Tarea[] = []= this.tareaserv.tareas;
+
+  eliminarTarea(id: number){
+    this.tareaserv.eliminarTarea(id);
   }
+
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: AgregarTareaComponent,
+    });
+    return await modal.present();
+  }
+
 }

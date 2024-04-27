@@ -1,31 +1,36 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { tarea } from 'src/tarea.model';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { Tarea } from 'src/models/tarea';
+import { AgregaTareasService } from '../agrega-tareas.service';
 
 @Component({
   selector: 'app-agregar-tarea',
   templateUrl: './agregar-tarea.component.html',
   styleUrls: ['./agregar-tarea.component.scss'],
 })
-export class AgregarTareaComponent {
-  myForm!: FormGroup;
+export class AgregarTareaComponent  implements OnInit {
 
-  constructor(private router: Router) { 
-    this.router.navigate(['/home-module']);
+  constructor(private modalCtrl: ModalController, private tareaServ: AgregaTareasService) { }
 
+  ngOnInit() {}
+
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
-  @Output() tareaAdded = new EventEmitter<tarea>();
   
-  title: string = '';
-  date: Date = new Date();
+  nuevaTarea: Tarea = {
+    titulo: '',
+    fechaMes: '',
+    fechaAnio: 2024,
+    descripcion: ''
+  } 
 
-  
-
-  addTarea() {
-    this.tareaAdded.emit({ title: this.title, date: this.date });
-    this.title = ''; 
-    this.date = new Date(); 
+  submit(){
+    console.log("Submit form");
+    this.tareaServ.agregarTarea(this.nuevaTarea); // Llama al método agregarTarea del servicio
+    this.modalCtrl.dismiss(this.nuevaTarea);
   }
 
 }

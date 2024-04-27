@@ -1,15 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Mi app de tareas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<div *ngFor="let tarea of tareas">
-<ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>{{tarea.title}}</ion-card-subtitle>
-    
-  </ion-card-header>
-
-  <ion-card-content>
-    <p>      <span style="color: black;">Fecha</span>   <span style="color: blueviolet;"> {{tarea.date}}</span>      </p>
-  </ion-card-content>
-
-  <ion-button fill="clear"> + Ver más detalles</ion-button>
-</ion-card>
-</div>
+<ion-content [fullscreen]="true">
+  <p>Escribe tus tareas...</p>
+  <ion-card *ngFor="let tareas of tareas; index as i">
+    <br>
+    <ion-row>
+      <ion-col size="10">
+        <ion-checkbox labelPlacement="end">
+          <h5>{{tareas.titulo}}</h5>
+        </ion-checkbox>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button (click)="eliminarTarea(i)">Eliminar tarea</ion-button>
+      </ion-col>
+    </ion-row>
+    <br>
+    <div class="detalles">
+      <ion-accordion-group color="light">
+        <ion-accordion value="first" color="light">
+          <ion-item slot="header" color="light">
+            <ion-label>Ver mas detalles</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <ion-row no-padding>
+              <h6>{{tareas.descripcion}}</h6>
+            </ion-row>
+            <ion-row no-padding>
+              <ion-col>
+                <h6>Fecha</h6>
+              </ion-col>
+              <ion-col>
+                <h6>{{tareas.fechaMes}}/{{tareas.fechaAnio}}</h6>
+              </ion-col>
+            </ion-row>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </div>
+  </ion-card>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openModal()">+</ion-fab-button>
+  </ion-fab>
+<br><br><br><br><br><br><br>
+</ion-content>

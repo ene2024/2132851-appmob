@@ -1,8 +1,4 @@
-import { compileNgModule } from '@angular/compiler';
-import { Component } from '@angular/core';
-import { tarea } from 'src/tarea.model';
-import { AgregarTareaComponent } from '../agregar-tarea/agregar-tarea.component';
-import { TareasComponent } from '../tareas/tareas.component';
+import { Component  , Output} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -11,18 +7,22 @@ import { TareasComponent } from '../tareas/tareas.component';
 })
 export class HomePage {
 
-  constructor() {
-    console.log("AppComponent: Constructor");
+  constructor() {}
+
+  titulo: string = "Mi App de Tareas";
+
+  verdadero: boolean = false;
+
+  articulos: any = ["Libro - 40", "Computadora - 30", "Refresco -20"];
+
+
+
+  @Output() tareaTitulo: string = 'Valor de salida';
+
+  hazmeClic(): void {
+    alert('hiciste clic!');
   }
 
+  imagenSrc: string = 'https://i.redd.it/7ksiaa4exhh01.gif';
 
-  ngOnChanges() {
-    console.log("AppComponent: OnChanges");
-  }
-
-  tareas: tarea[] = [];
-
-  onTareaAdded(tarea: tarea) {
-    this.tareas.push(tarea);
-  }
 }

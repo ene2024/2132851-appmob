@@ -1,37 +1,12 @@
-#container {
-  text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.rojo {
+  color: red;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.azul {
+  color: blue;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-
-
-ion-fab-button {
-  --background: #55DDE0;
-  --background-activated: #456990;
-  --background-hover: #55DDE0;
-  --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-  --color: black;
+* {
+  --color: rgb(170, 2, 142);
 }
