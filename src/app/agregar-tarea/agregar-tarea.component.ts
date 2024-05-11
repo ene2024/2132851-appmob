@@ -23,14 +23,14 @@ export class AgregarTareaComponent  implements OnInit {
   nuevaTarea: Tarea = {
     titulo: '',
     fechaMes: '',
-    fechaAnio: 2024,
+    fechaAnio: '',
     descripcion: ''
   } 
 
   submit(){
     console.log("Submit form");
     this.tareaServ.agregarTarea(this.nuevaTarea); // Llama al método agregarTarea del servicio
-    this.modalCtrl.dismiss(this.nuevaTarea);
+    this.modalCtrl.dismiss();
   }
 
 }

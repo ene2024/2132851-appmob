@@ -14,6 +14,10 @@ export class AgregaTareasService {
     return this.tareas;
   }
 
+  getTareasById(id: any) {
+    return this.tareas[id];
+  }
+
   agregarTarea(tareaNueva: Tarea){
 
     this.tareas.push(tareaNueva);

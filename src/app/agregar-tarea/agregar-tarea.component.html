@@ -55,8 +55,7 @@
       </ion-row>
 
       <ion-row>
-        <ion-button (click)="submit()"> Agregar </ion-button>
-        
+        <ion-button [disabled]="!agregarTareaform.valid" (click)="submit()" class="submit"> Agregar </ion-button>        
       </ion-row>
     </ion-card>
   </form>

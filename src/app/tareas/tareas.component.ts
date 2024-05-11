@@ -14,16 +14,23 @@ export class TareasComponent  implements OnInit {
 
   constructor(private modalCtrl: ModalController, private tareaserv: AgregaTareasService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tareaserv.getTareas;
+  }
+  
 
   tareaNueva: Tarea = {
     titulo: '',
     fechaMes: '',
-    fechaAnio: 2024,
+    fechaAnio: '',
     descripcion: ''
   } 
 
   tareas: Tarea[] = []= this.tareaserv.tareas;
+
+  async handleTareaInicial() {
+    return this.tareas[0];
+  }
 
   eliminarTarea(id: number){
     this.tareaserv.eliminarTarea(id);
@@ -36,5 +43,6 @@ export class TareasComponent  implements OnInit {
     });
     return await modal.present();
   }
+
 
 }

@@ -10,10 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { TareasComponent } from './tareas/tareas.component';
 import { AgregarTareaComponent } from './agregar-tarea/agregar-tarea.component';
 import { FormsModule } from '@angular/forms';
+import { TareaDetalleComponent } from './tarea-detalle/tarea-detalle.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TareasComponent, AgregarTareaComponent],
+  declarations: [AppComponent, TareasComponent, AgregarTareaComponent, TareaDetalleComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

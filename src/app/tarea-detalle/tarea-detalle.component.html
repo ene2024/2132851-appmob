@@ -1,0 +1,19 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Mi app de Tareas
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-card>
+      <h5>{{tarea.titulo}}</h5>
+      <div class="imagen">
+        <img src={{imgurl}}>
+      </div>
+      <h6>Descripción: {{tarea.descripcion}}</h6>
+      <h6>Fecha: {{tarea.fechaMes}}/{{tarea.fechaAnio}}</h6>
+    </ion-card>
+  </ion-content>
+</ion-app>
